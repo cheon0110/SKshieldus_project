@@ -4,7 +4,7 @@
 
 - 주식 종목 선택 시 상승세, 하락세 확인 하는 방법
 
-![Untitled](Readme_img\main.png)
+![Untitled](./Readme_img/main.png)
 
 
 
