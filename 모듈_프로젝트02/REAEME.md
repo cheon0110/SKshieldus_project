@@ -14,4 +14,4 @@
 
 - 유명한 변동 보조 지표를 활용
 
-![Untitled](Readme_img\1.png)
+![Untitled](Readme_img/1.png)
