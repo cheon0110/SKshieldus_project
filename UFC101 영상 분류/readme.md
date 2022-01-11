@@ -1,57 +1,75 @@
-# [DYCON] 구내식당 식수 인원 예측
+
+
+# UFC101 영상 분류
 
 > 프로젝트 설명
+> 
+- UFC101 dataset (사람들의 101가지 동작을 녹화한 비디오 데이터셋)
+- 위 데이터셋 중 3가지 동작을 딥러닝 모델을 활용해 분류하는 프로젝트
 
-- 구내식당 이용객 수를 예측하는 대회
-- 머신러닝 방식 적용
+---
 
-## 1. 컬럼 소개
+# 1. 사용 모델
 
-![Untitled](readme_img/column.png)
+## 1.1 LeNet
+
+![Untitled](UFC101/Untitled.png)
+
+---
+
+---
+
+## 1.2. VGG
+
+![Untitled](UFC101/Untitled%201.png)
 
 
+---
 
-## 2. 데이터 전처리
+## 1.3. ResNet
 
-- 컬럼별 특성 파악
+![Untitled](UFC101/Untitled%202.png)
 
-![Untitled](readme_img/column1.png)
+---
 
-![Untitled](readme_img/column2.png)
+---
 
-## 3. 이상치 제거
+## 1.4. NasNetLarge
 
-![Untitled](readme_img/column_a.png)
+![Untitled](UFC101/Untitled%203.png)
 
-## 4. 필요 컬럼 추가
+## 1.5. ResNext
 
-![Untitled](readme_img/column3.png)
+![Untitled](UFC101/Untitled%204.png)
 
-## 5. 알고리즘
+## 1.6. VGG16 + GRU
 
-- Decision Tree
-- Random Forest
-- XGBoost
-- Light BGM
-- KNN (K Nearest Neighbors)
-- Logistic Regression
-- Linear Regression
-- Polynomial Regression
-- Ridge
-- Lasso
-- Elastic Net
+![Untitled](UFC101/Untitled%205.png)
 
-## 7. 결론 및 고찰
+---
 
-- 제출 결과, Decision Tree를 이용한 예측이, 378등으로 가장 등수가 높았음
+## 1.7. VGG19 + LSTM
 
-- 대회제출을 위한 test데이터를 이용할 때, 전처리과정을 동일하게 밟았고,예측값이 로그로 나오기 때문에, 지수함수를 이용한 후에, 제출함
-
-  그리고나서, 데이터를 정규화할 때, Log0은 음의 무한대이므로, 파이썬 오류를 방지하기 위해서 Log를 취한 후에 1을 더해 주었기 때문에, 모델의 예측값을 지수함수에 대입하고, 1을 더한 값을 제출함
-
-- 데이터 처리를 잘못한 부분이 있어서 인지 등수가 높게 나오지는 않았음 고민이 필요함
-
-![Untitled](readme_img/last.png)
+![Untitled](UFC101/Untitled%206.png)
 
 
 
+# 2. 정확도 낮은 모델 분석
+
+### 2.1 이미지내 사람 골격 좌표를 이용해 행동을 분석
+
+- 사용 모델 : OpenPose
+
+![Untitled](UFC101/Untitled%207.png)
+
+---
+
+## 2.2 이미지 내 사람부분만 잘라서 학습시키면 더 정확한가?
+
+- OpenCV를 사용해 'person' 기준 프레임 자르기
+
+![Untitled](UFC101/Untitled%208.png)
+
+## 2.3 결과
+
+- 저조한 정확도를 보임. 예측에  단순 사람의 행동 이미지, 골격 좌표 또한 중요하지만 주위 환경, 조도, 사물 등 또한 예측에 많은 영향을 미침
